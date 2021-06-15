@@ -4,6 +4,7 @@ import App from "./App";
 import { UserProvider } from "./context/UserContext";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
+import { DataProvider } from "./context/DataContext";
 
 const theme = createMuiTheme({
   palette: {
@@ -19,10 +20,12 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <DataProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </DataProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
