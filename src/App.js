@@ -1,4 +1,5 @@
 import { Grid } from "@material-ui/core";
+import Controls from "./components/Controls";
 import Distance from "./components/Distance";
 import Humidity from "./components/Humidity";
 import Layout from "./components/Layout";
@@ -16,6 +17,9 @@ const App = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <Distance />
+        </Grid>
+        <Grid item xs={12}>
+          <Controls />
         </Grid>
       </Grid>
     </Layout>
