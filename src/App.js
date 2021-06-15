@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Distance from "./components/Distance";
+import Humidity from "./components/Humidity";
+import Layout from "./components/Layout";
+import Temperature from "./components/Temperature";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Temperature />
+      <Humidity />
+      <Distance />
+    </Layout>
   );
-}
+};
 
 export default App;
