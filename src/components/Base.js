@@ -1,19 +1,30 @@
-import { makeStyles, Typography } from "@material-ui/core";
-import { Paper } from "@material-ui/core";
+import { makeStyles, Typography, Paper } from "@material-ui/core";
+import AnimatedNumber from "animated-number-react";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
   },
+  number: {
+    fontSize: "3rem",
+  },
 }));
 
 const Base = ({ data, title, children }) => {
   const classes = useStyles();
+  const formatValue = (value) => Number(value).toFixed(2);
   return (
     <Paper className={classes.paper}>
       {children}
-      <Typography variant="h3">{data && data.val()}</Typography>
+      {data && (
+        <AnimatedNumber
+          value={data.val()}
+          formatValue={formatValue}
+          duration={500}
+          className={classes.number}
+        />
+      )}
       <Typography variant="h5">{title}</Typography>
     </Paper>
   );
