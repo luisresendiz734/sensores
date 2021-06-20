@@ -1,15 +1,32 @@
-import { Typography } from "@material-ui/core";
 import { useData } from "../context/DataContext";
-import Base from "./Base";
+import BaseH from "./BaseH";
 import DataChart from "./DataChart";
+import { CircleProgress } from "react-gradient-progress";
 
 const Humidity = () => {
   const { humidity, humidityHistory } = useData();
   return (
     <>
-      <Base data={humidity} title="Humedad">
-        <Typography>dentro de humedad</Typography>
-      </Base>
+      <BaseH data={humidity} title="Humedad">
+        <section
+          style={{
+            width: "100%",
+            transform: "rotate(-90deg)",
+            marginBottom: "-13rem",
+          }}
+        >
+          {humidity && (
+            <CircleProgress
+              percentage={humidity.val()}
+              strokeWidth={20}
+              primaryColor={["#5E4AE3", "#23C9FF"]}
+              width={300}
+              fontColor="#fff"
+              secondaryColor="#f2f2f2"
+            />
+          )}
+        </section>
+      </BaseH>
       <DataChart data={humidityHistory} from={1500} />
     </>
   );

@@ -11,6 +11,7 @@ const KEYS = {
   HH: "humidityHistory",
   D: "distance",
   DH: "distanceHistory",
+  M: "motor",
 };
 
 const DataProvider = ({ children }) => {
@@ -20,6 +21,7 @@ const DataProvider = ({ children }) => {
   const [temperatureHistory] = useObject(db.ref(KEYS.TH));
   const [humidityHistory] = useObject(db.ref(KEYS.HH));
   const [distanceHistory] = useObject(db.ref(KEYS.DH));
+  const [motor] = useObject(db.ref(KEYS.M));
 
   return (
     <DataContext.Provider
@@ -30,6 +32,7 @@ const DataProvider = ({ children }) => {
         humidityHistory,
         distance,
         distanceHistory,
+        motor,
       }}
     >
       {children}
