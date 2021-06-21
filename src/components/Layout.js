@@ -1,9 +1,5 @@
-import { useUser } from "../context/UserContext";
-
 import {
   AppBar,
-  Avatar,
-  Button,
   IconButton,
   makeStyles,
   Toolbar,
@@ -28,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = ({ children }) => {
   const classes = useStyles();
-  const { user, login, logout } = useUser();
   return (
     <>
       <AppBar position="static">
@@ -44,22 +39,6 @@ const Layout = ({ children }) => {
           <Typography variant="h6" className={classes.title}>
             Sensores
           </Typography>
-          {user ? (
-            <>
-              <Typography className={classes.name} variant="subtitle1">
-                {user.displayName}
-              </Typography>
-              <Avatar
-                src={user.photoURL}
-                alt={user.displayName}
-                onClick={logout}
-              />
-            </>
-          ) : (
-            <Button color="inherit" onClick={login}>
-              login
-            </Button>
-          )}
         </Toolbar>
       </AppBar>
       <main style={{ width: "90%", margin: "2rem auto" }}>{children}</main>
